@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace TestApp
 {
@@ -31,6 +32,8 @@ namespace TestApp
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
+
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://mobileapps3testproject.azurewebsites.net");
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

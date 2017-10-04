@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.WindowsAzure.MobileServices;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -29,6 +31,27 @@ namespace TestApp
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        IMobileServiceTable<testtable> userTableObj = App.MobileService.GetTable<testtable>();
+
+        private async void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                testtable obj = new testtable();
+                obj.firstname = txtFirstName.Text;
+                obj.lastname = txtLastName.Text;
+                obj.city = txtCity.Text;
+                await userTableObj.InsertAsync(obj);
+                MessageDialog msgDialog = new MessageDialog("Data Inserted!!");
+                await msgDialog.ShowAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageDialog msgDialogError = new MessageDialog("Error : " + ex.ToString());
+                await msgDialogError.ShowAsync();
+            }
         }
     }
 }

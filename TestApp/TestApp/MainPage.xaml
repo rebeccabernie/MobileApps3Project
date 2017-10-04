@@ -13,7 +13,7 @@
             <TextBox x:Name="txtFirstName" PlaceholderText="first name" />
             <TextBox x:Name="txtLastName" PlaceholderText="last name" Margin="0,20,0,0" />
             <TextBox x:Name="txtCity" PlaceholderText="city" Margin="0,20,0,0" />
-            <Button x:Name="btnSave" Content="Save" Tapped="btnSave_Tapped" Margin="0,20,0,0" HorizontalAlignment="Stretch" />
+            <Button x:Name="btnSave" Content="Save" Margin="0,20,0,0" HorizontalAlignment="Stretch" Click="btnSave_Click" />
         </StackPanel>
     </Grid>
 </Page>
