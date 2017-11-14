@@ -5,6 +5,7 @@ using UnityEngine;
 public class toasterTrack : MonoBehaviour {
 
     Transform toaster;
+    public float offsetX;
 
 	// Use this for initialization
 	void Start () {
@@ -14,11 +15,18 @@ public class toasterTrack : MonoBehaviour {
             Debug.LogError("Could not locate toaster...");
             return;
         }
+
+        toaster = toasterObj.transform;
+        offsetX = transform.position.x - toaster.position.x;
         
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (toaster != null) { // i.e. not dead
+            Vector3 pos = transform.position; // can't directly modify transform.position.x
+            pos.x = toaster.position.x + offsetX;
+            transform.position = pos;
+        }
+    }
 }
