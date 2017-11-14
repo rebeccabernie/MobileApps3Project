@@ -189,9 +189,10 @@ GameObject:
   - component: {fileID: 171867445}
   - component: {fileID: 171867444}
   - component: {fileID: 171867443}
+  - component: {fileID: 171867446}
   m_Layer: 0
   m_Name: toaster
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,7 +245,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300010, guid: bf7e8918514a79842be4b8ed193b1173, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -261,13 +262,28 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 171867442}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.0017453891, z: 0, w: 0.9999985}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.2, z: 0}
+--- !u!114 &171867446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 171867442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93a64d34f457aa4b8dfab13d81603c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: {x: 0, y: -2, z: 0}
+  boostVelo: {x: 0, y: 1, z: 0}
+  maxSpeed: 3
+  xSpeed: 0.5
 --- !u!1 &677342664
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +296,7 @@ GameObject:
   - component: {fileID: 677342667}
   - component: {fileID: 677342666}
   - component: {fileID: 677342665}
+  - component: {fileID: 677342670}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -357,3 +374,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &677342670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677342664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5e01f291a7abb43bf2ae4386d8844d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
