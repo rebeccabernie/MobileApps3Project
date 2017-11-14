@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class skyLoop : MonoBehaviour {
 
-    // Testing, making sure skyLoop collider collides with background sky
 	void OnTriggerEnter2D(Collider2D collider) {
-        Debug.Log(collider.name + " triggered");
+        Debug.Log("Triggered: " + collider.name);
 
-        float skyWidth = ((BoxCollider2D)collider).size.x; // cast the collider to the BoxCollider2D to get size
+        float skyWidth = ((BoxCollider2D)collider).size.x; // cast collider to box collider 2d
         Vector3 pos = collider.transform.position;
-        pos.x += skyWidth * 4 - skyWidth/2f; // 4 background tiles
-        collider.transform.position = pos; // save new position
+        pos.x += skyWidth * 6; // 4 background tiles
+        collider.transform.position = pos; // move the first tile to the new position
     }
 }
