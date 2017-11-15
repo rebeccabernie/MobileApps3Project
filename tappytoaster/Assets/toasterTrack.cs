@@ -9,6 +9,9 @@ public class toasterTrack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //GameObject barrierObj = GameObject.FindGameObjectWithTag("barrier");
+        //barrierObj.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
         GameObject toasterObj = GameObject.FindGameObjectWithTag("Player");
         // Just for testing purposes...
         if (toasterObj == null) {

@@ -9,16 +9,17 @@ public class toasterMove : MonoBehaviour {
     public Vector3 boostVelo; // Velocity of boost/tap
     bool boost = false; // boost = user taps screen, toaster flies
     public float maxSpeed = 5;
-
-    public float xSpeed = 0.5f; // How fast toaster moves towards right
+    float xSpeed = 0.5f; // How fast toaster moves towards right
+    Animator animator;
 
 	// Use this for initialization
 	void Start () {
-		
+        animator = transform.GetComponentInChildren<Animator>();
 	}
 
     // Graphic + input updates
     void Update () {
+        //animator.SetBool("doBoost", false);
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) { // 0 = left mouse key, screen taps also register as mouse clicks
             boost = true;
         }
@@ -26,10 +27,16 @@ public class toasterMove : MonoBehaviour {
 	
 	// Handles movement (physics) updates - use fixed update
 	void FixedUpdate () {
+        /*
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * 0.0007f);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * 0.007f);
+        */
+
         velocity.x = xSpeed;
         velocity += gravity * Time.deltaTime;
         if (boost == true) {
             boost = false; // reset
+            animator.SetTrigger("doBoost");
             if (velocity.y < 0)
                 velocity.y = 0;
             velocity += boostVelo;
@@ -47,7 +54,7 @@ public class toasterMove : MonoBehaviour {
         }
 
         transform.rotation = Quaternion.Euler(0, 0, angle); // no x or y rotation but will rotate on z
-
         
-	}
+
+    }
 }
