@@ -11,6 +11,7 @@ public class toasterMove : MonoBehaviour {
     public float maxSpeed = 5;
     float xSpeed = 0.5f; // How fast toaster moves towards right
     Animator animator;
+    bool dead = false;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,9 @@ public class toasterMove : MonoBehaviour {
         GetComponent<Rigidbody2D>().AddForce(Vector2.right * 0.007f);
         */
 
+        if (dead)
+            return;
+
         velocity.x = xSpeed;
         velocity += gravity * Time.deltaTime;
         if (boost == true) {
@@ -50,11 +54,16 @@ public class toasterMove : MonoBehaviour {
         float angle = 0;
         // velocity is less than 0, toaster will start to angle downwards
         if (velocity.y < 0) {
-            angle = Mathf.Lerp(0, -90, -velocity.y / 7);
+            angle = Mathf.Lerp(0, -90, (-velocity.y / 7) - 0.001f);
         }
 
         transform.rotation = Quaternion.Euler(0, 0, angle); // no x or y rotation but will rotate on z
-        
 
+    }
+
+    // When toaster collides with anything
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        animator.SetTrigger("death");
     }
 }
