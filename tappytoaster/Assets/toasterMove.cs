@@ -64,6 +64,8 @@ public class toasterMove : MonoBehaviour {
     // When toaster collides with anything
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("collision detected");
+
         animator.SetTrigger("death");
     }
 }
