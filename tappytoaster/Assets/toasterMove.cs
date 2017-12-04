@@ -9,7 +9,7 @@ public class toasterMove : MonoBehaviour {
     public Vector3 boostVelo; // Velocity of boost/tap
     bool boost = false; // boost = user taps screen, toaster flies
     public float maxSpeed = 5;
-    float xSpeed = 0.5f; // How fast toaster moves towards right
+    float xSpeed = 0.75f; // How fast toaster moves towards right
     Animator animator;
     bool dead = false;
 
@@ -39,6 +39,7 @@ public class toasterMove : MonoBehaviour {
             if (velocity.y < 0) // Angle
                 angle = Mathf.Lerp(0, -90, (-velocity.y / 7) - 0.001f);
             transform.rotation = Quaternion.Euler(0, 0, angle);
+            velocity.x = 0;
             return;
         }
 
@@ -47,8 +48,10 @@ public class toasterMove : MonoBehaviour {
         if (boost == true) {
             boost = false; // reset
             animator.SetTrigger("doBoost");
-            if (velocity.y < 0)
+            if (velocity.y < 0) {
                 velocity.y = 0;
+                velocity.x += 0.01f;
+            }
             velocity += boostVelo;
         }
 

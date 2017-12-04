@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\cloudLoop.cs" />
      <Compile Include="Assets\skyLoop.cs" />
      <Compile Include="Assets\toasterMove.cs" />
      <Compile Include="Assets\toasterTrack.cs" />
