@@ -32,9 +32,15 @@ public class toasterMove : MonoBehaviour {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * 0.0007f);
         GetComponent<Rigidbody2D>().AddForce(Vector2.right * 0.007f);
         */
-
-        if (dead)
+        float angle = 0;
+        if (dead){
+            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+            transform.position += velocity / 30;
+            if (velocity.y < 0) // Angle
+                angle = Mathf.Lerp(0, -90, (-velocity.y / 7) - 0.001f);
+            transform.rotation = Quaternion.Euler(0, 0, angle);
             return;
+        }
 
         velocity.x = xSpeed;
         velocity += gravity * Time.deltaTime;
@@ -51,7 +57,7 @@ public class toasterMove : MonoBehaviour {
         // Velocity increases as time goes on
         transform.position += velocity * Time.deltaTime;
 
-        float angle = 0;
+        
         // velocity is less than 0, toaster will start to angle downwards
         if (velocity.y < 0) {
             angle = Mathf.Lerp(0, -90, (-velocity.y / 7) - 0.001f);
@@ -65,7 +71,8 @@ public class toasterMove : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collision detected");
-
         animator.SetTrigger("death");
+        dead = true;
+        velocity.y = -1;
     }
 }
