@@ -11,7 +11,7 @@ public class cloudLoop : MonoBehaviour
 
         float cloudWidth = ((BoxCollider2D)collider).size.x; // cast collider to box collider 2d
         Vector3 pos = collider.transform.position;
-        pos.x += cloudWidth * 5; // 4 background tiles
+        pos.x += cloudWidth * 6; // 4 background tiles
         collider.transform.position = pos; // move the first tile to the new position
     }
 }

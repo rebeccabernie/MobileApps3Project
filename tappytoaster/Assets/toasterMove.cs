@@ -75,7 +75,7 @@ public class toasterMove : MonoBehaviour {
     {
         Debug.Log("collision detected");
         animator.SetTrigger("death");
-        dead = true;
+        //dead = true;
         velocity.y = -1;
     }
 }
