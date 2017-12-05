@@ -6,6 +6,7 @@ TagManager:
   tags:
   - barrier
   - cloud
+  - canvas
   layers:
   - Default
   - TransparentFX
