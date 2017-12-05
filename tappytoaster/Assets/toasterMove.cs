@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class toasterMove : MonoBehaviour {
@@ -9,7 +10,7 @@ public class toasterMove : MonoBehaviour {
     public Vector3 boostVelo; // Velocity of boost/tap
     bool boost = false; // boost = user taps screen, toaster flies
     public float maxSpeed = 5;
-    float xSpeed = 0.75f; // How fast toaster moves towards right
+    float xSpeed = 0.9f; // How fast toaster moves towards right
     Animator animator;
     bool dead = false;
 
@@ -36,8 +37,7 @@ public class toasterMove : MonoBehaviour {
         if (dead){
             velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
             transform.position += velocity / 30;
-            if (velocity.y < 0) // Angle
-                angle = Mathf.Lerp(0, -90, (-velocity.y / 7) - 0.001f);
+            angle = Mathf.Lerp(0, -90, (-velocity.y / 7) - 0.001f);
             transform.rotation = Quaternion.Euler(0, 0, angle);
             velocity.x = 0;
             return;
@@ -56,18 +56,15 @@ public class toasterMove : MonoBehaviour {
         }
 
         velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
-
         // Velocity increases as time goes on
         transform.position += velocity * Time.deltaTime;
-
-        
+ 
         // velocity is less than 0, toaster will start to angle downwards
         if (velocity.y < 0) {
             angle = Mathf.Lerp(0, -90, (-velocity.y / 7) - 0.001f);
         }
-
+   
         transform.rotation = Quaternion.Euler(0, 0, angle); // no x or y rotation but will rotate on z
-
     }
 
     // When toaster collides with anything
@@ -76,6 +73,7 @@ public class toasterMove : MonoBehaviour {
         Debug.Log("collision detected");
         animator.SetTrigger("death");
         //dead = true;
-        velocity.y = -1;
+        velocity.y = -1.2f;
+        velocity.x = 0;
     }
 }

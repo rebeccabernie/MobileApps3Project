@@ -9,7 +9,8 @@ public class skyLoop : MonoBehaviour {
 
         float skyWidth = ((BoxCollider2D)collider).size.x; // cast collider to box collider 2d
         Vector3 pos = collider.transform.position;
-        pos.x += skyWidth * 6; // 4 background tiles
+        pos.x += skyWidth * 6;
         collider.transform.position = pos; // move the first tile to the new position
+
     }
 }
