@@ -54,7 +54,6 @@
      <Compile Include="Assets\cloudLoop.cs" />
      <Compile Include="Assets\Score.cs" />
      <Compile Include="Assets\skyLoop.cs" />
-     <Compile Include="Assets\TextManager.cs" />
      <Compile Include="Assets\toasterMove.cs" />
      <Compile Include="Assets\toasterTrack.cs" />
  <Reference Include="UnityEngine.UI">

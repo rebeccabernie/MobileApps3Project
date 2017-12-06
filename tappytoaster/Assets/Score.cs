@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Score : MonoBehaviour {
 
-    static int score = 3;
-    static int highScore = 15;
+    static int score = 0;
+    static int highScore;
     public Text PlayerScore;
+    public static Stopwatch stopWatch = new Stopwatch();
+
+    void Start() {
+        stopWatch.Start();
+    }
+
 
     static public void addScore() {
         score++;
@@ -18,6 +25,7 @@ public class Score : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        PlayerScore.text = "SCORE: " + score + "\nBEST: " + highScore;
+        long duration = stopWatch.ElapsedMilliseconds / 500;
+        PlayerScore.text = "" + duration + "\n" + highScore;
     }
 }

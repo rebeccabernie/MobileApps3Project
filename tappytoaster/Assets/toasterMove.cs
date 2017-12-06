@@ -75,5 +75,6 @@ public class toasterMove : MonoBehaviour {
         //dead = true;
         velocity.y = -1.2f;
         velocity.x = 0;
+        Score.stopWatch.Stop();
     }
 }
