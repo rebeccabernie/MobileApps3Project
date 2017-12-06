@@ -6,16 +6,17 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour {
 
-    static int score = 0;
+    public static int score = 0;
     static int highScore;
     public Text PlayerScore;
     public static Stopwatch stopWatch = new Stopwatch();
 
     void Start() {
+        score = 0;
         stopWatch.Start();
-        highScore = PlayerPrefs.GetInt("highScore"); 
+        highScore = PlayerPrefs.GetInt("highScore", 0);
     }
-   
+
     // Update is called once per frame
     void Update() {
         score = ((int)stopWatch.ElapsedMilliseconds) / 500;

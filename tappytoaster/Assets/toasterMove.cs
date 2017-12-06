@@ -12,7 +12,8 @@ public class toasterMove : MonoBehaviour {
     public float maxSpeed = 5;
     float xSpeed = 0.95f; // How fast toaster moves towards right
     Animator animator;
-    bool dead = false;
+    public bool dead = false;
+    float deathCooldown;
 
 	// Use this for initialization
 	void Start () {
@@ -21,10 +22,22 @@ public class toasterMove : MonoBehaviour {
 
     // Graphic + input updates
     void Update () {
-        //animator.SetBool("doBoost", false);
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) { // 0 = left mouse key, screen taps also register as mouse clicks
-            boost = true;
+        if (dead) {
+            deathCooldown -= Time.deltaTime;
+
+            if (deathCooldown <= 0) {
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) { // 0 = left mouse key, screen taps also register as mouse clicks
+                    Score.score = 0;
+                    Application.LoadLevel( Application.loadedLevel );
+                 }
+            }
         }
+        else {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) { // 0 = left mouse key, screen taps also register as mouse clicks
+                boost = true;
+            }
+        }
+        
     }
 	
 	// Handles movement (physics) updates - use fixed update
@@ -74,6 +87,7 @@ public class toasterMove : MonoBehaviour {
         Debug.Log("collision detected");
         animator.SetTrigger("death");
         dead = true;
+        deathCooldown = 0.5f;
         Score.stopWatch.Stop();
         Score.OnDeath();
     }
