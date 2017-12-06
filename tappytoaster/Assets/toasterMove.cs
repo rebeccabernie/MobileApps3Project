@@ -10,7 +10,7 @@ public class toasterMove : MonoBehaviour {
     public Vector3 boostVelo; // Velocity of boost/tap
     bool boost = false; // boost = user taps screen, toaster flies
     public float maxSpeed = 5;
-    float xSpeed = 0.9f; // How fast toaster moves towards right
+    float xSpeed = 0.95f; // How fast toaster moves towards right
     Animator animator;
     bool dead = false;
 
@@ -40,6 +40,7 @@ public class toasterMove : MonoBehaviour {
             angle = Mathf.Lerp(0, -90, (-velocity.y / 7) - 0.001f);
             transform.rotation = Quaternion.Euler(0, 0, angle);
             velocity.x = 0;
+            velocity.y = -1f;
             return;
         }
 
@@ -72,9 +73,8 @@ public class toasterMove : MonoBehaviour {
     {
         Debug.Log("collision detected");
         animator.SetTrigger("death");
-        //dead = true;
-        velocity.y = -1.2f;
-        velocity.x = 0;
+        dead = true;
         Score.stopWatch.Stop();
+        Score.OnDeath();
     }
 }

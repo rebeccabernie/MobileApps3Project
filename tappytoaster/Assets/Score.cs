@@ -13,19 +13,22 @@ public class Score : MonoBehaviour {
 
     void Start() {
         stopWatch.Start();
+        highScore = PlayerPrefs.GetInt("highScore"); 
     }
-
-
-    static public void addScore() {
-        score++;
-
-        if (score > highScore)
-            highScore = score;
-    }
-
+   
     // Update is called once per frame
     void Update() {
-        long duration = stopWatch.ElapsedMilliseconds / 500;
-        PlayerScore.text = "" + duration + "\n" + highScore;
+        score = ((int)stopWatch.ElapsedMilliseconds) / 500;
+
+        if (score > highScore) {
+            highScore = score;
+        }
+
+        PlayerScore.text = "" + score + "\n" + highScore;
     }
+
+    public static void OnDeath() {
+        PlayerPrefs.SetInt("highScore", highScore);
+    }
+
 }

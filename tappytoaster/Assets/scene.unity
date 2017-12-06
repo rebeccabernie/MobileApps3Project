@@ -471,8 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93a64d34f457aa4b8dfab13d81603c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: {x: 0, y: -2.3, z: 0}
-  boostVelo: {x: 0, y: 1.3, z: 0}
+  gravity: {x: 0, y: -2.5, z: 0}
+  boostVelo: {x: 0, y: 1.35, z: 0}
   maxSpeed: 3
 --- !u!50 &171867447
 Rigidbody2D:
