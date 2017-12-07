@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour {
 
     void Start() {
-        Debug.Log("Start name: " + PlayerPrefs.GetString("username"));
-        if (PlayerPrefs.HasKey("username") == true)
-            return;
+        if (!PlayerPrefs.HasKey("username"))
+            SceneManager.LoadScene(3);
         
         else {
-            SceneManager.LoadScene(3);
+            Debug.Log("Start name: " + PlayerPrefs.GetString("username"));
+            return;
         }
     }
 
@@ -22,6 +22,10 @@ public class MenuScript : MonoBehaviour {
 
     public void highScores() {
         SceneManager.LoadScene(2);
+    }
+
+    public void backToMenu() {
+        SceneManager.LoadScene(0);
     }
 
 }

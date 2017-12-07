@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class StartScreen : MonoBehaviour {
 
-    static bool sawOnce = false;
+    static bool firstDisp = true;
 
 	// Use this for initialization
 	void Start () {
-
-        if (!sawOnce) {
-            GetComponent<SpriteRenderer>().enabled = true;
-            Time.timeScale = 0; // Pause
-        }
-
-        sawOnce = true;
-	}
+        GetComponent<SpriteRenderer>().enabled = true;
+        Time.timeScale = 0; // Pause
+    }
 	
 	// Update is called once per frame
 	void Update () {

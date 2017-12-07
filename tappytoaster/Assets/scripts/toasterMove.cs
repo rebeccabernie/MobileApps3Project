@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class toasterMove : MonoBehaviour {
 
@@ -27,9 +28,9 @@ public class toasterMove : MonoBehaviour {
             deathCooldown -= Time.deltaTime;
 
             if (deathCooldown <= 0) {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) { // 0 = left mouse key, screen taps also register as mouse clicks
+                //if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) { // 0 = left mouse key, screen taps also register as mouse clicks
                     SceneManager.LoadScene("scene");
-                }
+                //}
             }
         }
         else {
@@ -42,10 +43,6 @@ public class toasterMove : MonoBehaviour {
 	
 	// Handles movement (physics) updates - use fixed update
 	void FixedUpdate () {
-        /*
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * 0.0007f);
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right * 0.007f);
-        */
         float angle = 0;
         if (dead){
             velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
