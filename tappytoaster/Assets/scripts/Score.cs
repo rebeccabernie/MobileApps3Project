@@ -12,8 +12,7 @@ public class Score : MonoBehaviour {
     public static Stopwatch stopWatch = new Stopwatch();
 
     void Start() {
-        score = 0;
-        stopWatch.Start();
+        stopWatch.Reset();
         highScore = PlayerPrefs.GetInt("highScore", 0);
     }
 

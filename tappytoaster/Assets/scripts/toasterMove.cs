@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class toasterMove : MonoBehaviour {
 
@@ -10,7 +11,7 @@ public class toasterMove : MonoBehaviour {
     public Vector3 boostVelo; // Velocity of boost/tap
     bool boost = false; // boost = user taps screen, toaster flies
     public float maxSpeed = 5;
-    float xSpeed = 0.95f; // How fast toaster moves towards right
+    float xSpeed = 1.5f; // How fast toaster moves towards right
     Animator animator;
     public bool dead = false;
     float deathCooldown;
@@ -27,9 +28,8 @@ public class toasterMove : MonoBehaviour {
 
             if (deathCooldown <= 0) {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) { // 0 = left mouse key, screen taps also register as mouse clicks
-                    Score.score = 0;
-                    Application.LoadLevel( Application.loadedLevel );
-                 }
+                    SceneManager.LoadScene("scene");
+                }
             }
         }
         else {
@@ -58,13 +58,13 @@ public class toasterMove : MonoBehaviour {
         }
 
         velocity.x = xSpeed;
-        velocity += gravity * Time.deltaTime;
+        velocity += gravity * (Time.deltaTime / 0.95f);
         if (boost == true) {
             boost = false; // reset
             animator.SetTrigger("doBoost");
             if (velocity.y < 0) {
                 velocity.y = 0;
-                velocity.x += 0.01f;
+                velocity.x += 0.02f;
             }
             velocity += boostVelo;
         }

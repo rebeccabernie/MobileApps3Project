@@ -8,6 +8,7 @@ TagManager:
   - cloud
   - canvas
   - gameover
+  - username
   layers:
   - Default
   - TransparentFX
