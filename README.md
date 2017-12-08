@@ -26,8 +26,8 @@ In the end, I decided to go for Tappy Toaster as the theme seemed a bit more int
 The game is time based - for every second you last without hitting a cloud, you'll gain two points.
 
 ### Learning Curve  
-I had never worked with Unity before, but wanted to try developing a simple, fun game. I found Unity was very finicky at times and it took a while to get used to, but ultimately was enjoyable to play around with. There were many useful tutorials online, as well as many forums and good documentation.   
-I tried various cloud storage functions from Azure, but found it very difficult to incorporate in the app.  [ Still workin on it, will update later ]
+I had never worked with Unity before, but wanted to try developing a simple, fun game. I found Unity was very finicky at times and it took a while to get used to, but ultimately was enjoyable to play around with. There were many useful tutorials online, as well as many forums and good documentation.  
+I tried various cloud storage functions from Azure, but found it very difficult to incorporate in the app. There is a degree of data storage within the app in that the user's personal high score is saved, but no cloud storage as of yet.
 
 
 

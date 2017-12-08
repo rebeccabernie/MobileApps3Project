@@ -9,7 +9,7 @@ public class toasterTrack : MonoBehaviour {
     Transform toaster;
     public float offsetX; // Toaster isn't in the middle of the camera, slightly off to left
 
-    #region On Start / First Fram
+    #region On Start - Position Toaster
     // Use this for initialization
     void Start () {
 
@@ -28,7 +28,7 @@ public class toasterTrack : MonoBehaviour {
 	}
     #endregion
 
-    #region Update (Once per Frame)
+    #region Update - Move Toaster / Camera
     // Update is called once per frame
     void Update () {
         if (toaster != null) { // i.e. not dead

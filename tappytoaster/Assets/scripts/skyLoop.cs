@@ -6,7 +6,8 @@ public class skyLoop : MonoBehaviour {
 
     // This class loops the sky background
 
-	void OnTriggerEnter2D(Collider2D collider) {
+    #region Trigger a Background Tile Movement
+    void OnTriggerEnter2D(Collider2D collider) {
         //Debug.Log("Triggered: " + collider.name);
 
         // Collider is the same width as a panel, get the collider's width and set the background width to that
@@ -14,6 +15,6 @@ public class skyLoop : MonoBehaviour {
         Vector3 pos = collider.transform.position; // set pos to the position of the collider
         pos.x += skyWidth * 6; // new position = width x 6 (6 panels)
         collider.transform.position = pos; // move the first tile to the new position
-
     }
+    #endregion
 }

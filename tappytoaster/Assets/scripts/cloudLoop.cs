@@ -10,6 +10,7 @@ public class cloudLoop : MonoBehaviour {
     float cloudMax = 0.6f; // Maximum height a cloud pair can be set to 
     float cloudMin = -0.35f; // Minimum height
 
+    #region On Start - Initial Pos and Random Heights
     void Start() {
         GameObject[] clouds = GameObject.FindGameObjectsWithTag("cloud"); // Find cloud objects
 
@@ -20,6 +21,7 @@ public class cloudLoop : MonoBehaviour {
             cloud.transform.position = pos; // move the first tile to the new position
         }
     }
+    #endregion
 
     #region Cloud Looping / Random Heights
     void OnTriggerEnter2D(Collider2D collider) {

@@ -29,7 +29,7 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>CA5E8BD80880BCEBB415AB6C33164E823413F65C</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>A1A1D5A50C51933770B5D4C044FAA791E5B7B02C</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>

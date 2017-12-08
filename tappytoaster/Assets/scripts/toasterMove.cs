@@ -20,7 +20,7 @@ public class toasterMove : MonoBehaviour {
     public bool dead = false; // Is dead or not
     float deathCooldown; // "Pause" after death, prevent game from restarting immediately, i.e. user has time to realise they died
 
-    #region Start and Updates 
+    #region Start, Updates - Reload Game and Boost Inits
     // Use this for initialization
     void Start () {
         animator = transform.GetComponentInChildren<Animator>(); // Get the animator on start, need to update each frame depending on if user taps or not

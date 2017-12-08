@@ -11,10 +11,12 @@ public class SaveName : MonoBehaviour {
     public InputField usernameField; // Game object input field
     private string yourName; // String in the input field
 
+    #region On Save Button Clicked
     public void OnSubmit() { // When "Save" clicked
         yourName = usernameField.text; // set name variable to whatever's in the input box
         Debug.Log("Name: " + yourName); // testing, just making sure it works
         PlayerPrefs.SetString("username", yourName); // set the player's username in player preferences
         SceneManager.LoadScene(0); // Go back to the main menu
     }
+    #endregion
 }

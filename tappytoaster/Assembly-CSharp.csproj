@@ -51,14 +51,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\scripts\cloudLoop.cs" />
-     <Compile Include="Assets\scripts\MenuScript.cs" />
-     <Compile Include="Assets\scripts\SaveName.cs" />
-     <Compile Include="Assets\scripts\Score.cs" />
-     <Compile Include="Assets\scripts\skyLoop.cs" />
-     <Compile Include="Assets\scripts\StartScreen.cs" />
-     <Compile Include="Assets\scripts\toasterMove.cs" />
-     <Compile Include="Assets\scripts\toasterTrack.cs" />
+     <Compile Include="Assets\Scripts\cloudLoop.cs" />
+     <Compile Include="Assets\Scripts\MenuScript.cs" />
+     <Compile Include="Assets\Scripts\SaveName.cs" />
+     <Compile Include="Assets\Scripts\Score.cs" />
+     <Compile Include="Assets\Scripts\skyLoop.cs" />
+     <Compile Include="Assets\Scripts\StartScreen.cs" />
+     <Compile Include="Assets\Scripts\toasterMove.cs" />
+     <Compile Include="Assets\Scripts\toasterTrack.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
