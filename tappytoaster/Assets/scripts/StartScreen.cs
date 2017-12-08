@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class StartScreen : MonoBehaviour {
 
-    static bool firstDisp = true;
-
 	// Use this for initialization
 	void Start () {
         GetComponent<SpriteRenderer>().enabled = true;
