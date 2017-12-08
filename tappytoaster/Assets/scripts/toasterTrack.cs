@@ -4,32 +4,39 @@ using UnityEngine;
 
 public class toasterTrack : MonoBehaviour {
 
+    // This class handles the camera moving with the toaster
+
     Transform toaster;
-    public float offsetX;
+    public float offsetX; // Toaster isn't in the middle of the camera, slightly off to left
 
-	// Use this for initialization
-	void Start () {
-        //GameObject barrierObj = GameObject.FindGameObjectWithTag("barrier");
-        //barrierObj.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+    #region On Start / First Fram
+    // Use this for initialization
+    void Start () {
 
+        // Find the toaster game object using "Player" tag (set in unity), set toasterObj to that
         GameObject toasterObj = GameObject.FindGameObjectWithTag("Player");
-        // Just for testing purposes...
+
+        // If can't find toaster... just for testing purposes
         if (toasterObj == null) {
             Debug.LogError("Could not locate toaster...");
             return;
         }
 
-        toaster = toasterObj.transform;
-        offsetX = transform.position.x - toaster.position.x;
+        toaster = toasterObj.transform; // Get position of toaster
+        offsetX = transform.position.x - toaster.position.x; // Offset the toaster a bit
         
 	}
-	
-	// Update is called once per frame
-	void Update () {
+    #endregion
+
+    #region Update (Once per Frame)
+    // Update is called once per frame
+    void Update () {
         if (toaster != null) { // i.e. not dead
-            Vector3 pos = transform.position; // can't directly modify transform.position.x
-            pos.x = toaster.position.x + offsetX;
-            transform.position = pos;
+            Vector3 pos = transform.position; // Can't directly modify transform.position.x so set pos = position
+            pos.x = toaster.position.x + offsetX; // Get pos's position x, set it to toaster's position + offset
+            transform.position = pos; // Set that to the new/current position
+            // and repeat
         }
     }
+    #endregion
 }

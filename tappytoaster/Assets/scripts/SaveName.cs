@@ -5,13 +5,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SaveName : MonoBehaviour {
-    public InputField usernameField;
-    private string yourName;
 
-    public void OnSubmit() {
-        yourName = usernameField.text;
-        Debug.Log("Name: " + yourName);
-        PlayerPrefs.SetString("username", yourName);
-        SceneManager.LoadScene(0);
+    // Handles saving username
+
+    public InputField usernameField; // Game object input field
+    private string yourName; // String in the input field
+
+    public void OnSubmit() { // When "Save" clicked
+        yourName = usernameField.text; // set name variable to whatever's in the input box
+        Debug.Log("Name: " + yourName); // testing, just making sure it works
+        PlayerPrefs.SetString("username", yourName); // set the player's username in player preferences
+        SceneManager.LoadScene(0); // Go back to the main menu
     }
 }
