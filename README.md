@@ -38,7 +38,4 @@ I designed all the sprites for this game, which required learning some basic pix
 I researched a selection of possible cloud storage services, such as Azure and Amazon Web Services and decided Azure would be easier to incorporate in a Universal Windows Platform app. Azure has a variety of different cloud storage functions, but found it very difficult to incorporate any of them in the app. I tested many tutorials and blog posts from both Microsoft and other sources, but ultimately could not get cloud storage working properly.  
 There is a degree of data storage within the app in that the user's personal high score is saved, but no cloud storage to facilitate worldwide high scores as of yet.
 
-<img align="center" src="https://user-images.githubusercontent.com/14957616/33949554-d5c67166-e021-11e7-9ac2-6ac5df1a00a2.png">
-
-
-
+![TappyToaster](https://user-images.githubusercontent.com/14957616/33949934-e650ddea-e022-11e7-910f-3bf2ecf1da46.png)
